@@ -17,3 +17,7 @@ Given the details provided:
 7. **Visualization**: The data can be visualized to create heat maps, trajectory plots, and other visual tools to represent player movements, event locations, and game patterns.
 
 For further analysis, it would be important to consider the specific research questions or objectives you have in mind, as this will guide the type of analysis to be conducted. Additionally, access to the software tools or programming skills (e.g., in Python or R) is necessary to process and analyze the data effectively.
+
+### Resources
+
+- (How To Moneyball Soccer)[https://towardsdatascience.com/how-to-moneyball-soccer-46b589429748]
