@@ -2,11 +2,11 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/anaconda
 {
 	"name": "Anaconda (Python 3)",
-	"build": { 
-		"context": "..",
-		"dockerfile": "Dockerfile"
-	},
-
+	//"build": { 
+	//	"context": "..",
+	//	"dockerfile": "Dockerfile"
+	//},
+	"image": "mcr.microsoft.com/devcontainers/anaconda:0-3",
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 
