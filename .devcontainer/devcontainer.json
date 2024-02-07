@@ -6,7 +6,7 @@
 	//	"context": "..",
 	//	"dockerfile": "Dockerfile"
 	//},
-	"image": "mcr.microsoft.com/devcontainers/anaconda:0-3",
+	"image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12",
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 
