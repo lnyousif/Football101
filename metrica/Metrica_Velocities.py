@@ -42,7 +42,6 @@ def calc_player_velocities(team, smoothing=True, filter_='Savitzky-Golay', windo
     dt = team['Time [s]'].diff()
     
     # index of first frame in second half
-    second_half_idx = team.Period.idxmax(2)
     
     # estimate velocities for players in team
     for player in player_ids: # cycle through players individually
@@ -57,6 +56,8 @@ def calc_player_velocities(team, smoothing=True, filter_='Savitzky-Golay', windo
             vy[ raw_speed>maxspeed ] = np.nan
             
         if smoothing:
+            second_half_idx = team.Period.idxmax(2)
+
             if filter_=='Savitzky-Golay':
                 # calculate first half velocity
                 vx.loc[:second_half_idx] = signal.savgol_filter(vx.loc[:second_half_idx],window_length=window,polyorder=polyorder)
@@ -78,7 +79,8 @@ def calc_player_velocities(team, smoothing=True, filter_='Savitzky-Golay', windo
         team[player + "_vx"] = vx
         team[player + "_vy"] = vy
         team[player + "_speed"] = np.sqrt( vx**2 + vy**2 )
-
+        
+        team[player + "_distance_ball"] = ((team[player + '_x'] - team['ball_x']) ** 2 + (team[player + '_y'] - team['ball_y']) ** 2) ** 0.5
     return team
 
 def remove_player_velocities(team):
