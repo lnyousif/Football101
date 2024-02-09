@@ -10,7 +10,8 @@ The team approached this analysis in the following manner:
 
 1) *What data do we have?*
 2) *What can we do with this data?*
-3) *What additional analyses could be performed if more data was available?*
+3) *What do these analyses inform?*
+4) *What additional analyses could be performed if more data was available?*
 --------------------------------------------------------------------------------------
 The following sections break down how the team approached each of these questions:
 1. **What data do we have?**
@@ -71,7 +72,8 @@ The team conducted quite a few analyses on the dataset to derive some key findin
             | xxx | xxx |
             | xxx | xxx |
             | xxx | xxx |
-
+3. **What do these analyses inform?**
+4. **What additional analyses could be performed if more data was available?**
 
 
 
@@ -83,7 +85,7 @@ The team conducted quite a few analyses on the dataset to derive some key findin
 
 --------------------------------------------------------------------------------------
 
-The Metrica Sports sample data you mentioned provides a rich resource for soccer analytics, offering detailed tracking and event data from soccer matches. The data's structure, with coordinates ranging from 0 to 1 on each axis and standardized field dimensions (105x68 meters), facilitates various analyses. The synchronization of tracking and event data allows for in-depth analysis of player movements, team formations, and specific game events such as passes, shots, and fouls.
+<!-- The Metrica Sports sample data you mentioned provides a rich resource for soccer analytics, offering detailed tracking and event data from soccer matches. The data's structure, with coordinates ranging from 0 to 1 on each axis and standardized field dimensions (105x68 meters), facilitates various analyses. The synchronization of tracking and event data allows for in-depth analysis of player movements, team formations, and specific game events such as passes, shots, and fouls.
 
 Given the details provided:
 
@@ -105,4 +107,4 @@ For further analysis, it would be important to consider the specific research qu
 
 ### Resources
 
-- (How To Moneyball Soccer)[https://towardsdatascience.com/how-to-moneyball-soccer-46b589429748]
+- (How To Moneyball Soccer)[https://towardsdatascience.com/how-to-moneyball-soccer-46b589429748] -->
