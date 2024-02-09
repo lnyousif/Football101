@@ -5,35 +5,65 @@ Group 3 set out to analyze a dataset from one football (soccer) match to underst
 - **Event analysis:** Determine the success rate of certain "events" and their impact throughout the match
 - **Temporal analysis:** Understand how the ball position varied throughout the game
 - **Visual analysis:** Build a view that used the raw data to showcase a re-enactment of the match
-
+--------------------------------------------------------------------------------------
 The team approached this analysis in the following manner:
-1) What data do we have?
-2) What can we do with this data?
-3) What additional analyses could be performed if more data was available?
 
+1) *What data do we have?*
+2) *What can we do with this data?*
+3) *What additional analyses could be performed if more data was available?*
+--------------------------------------------------------------------------------------
 The following sections break down how the team approached each of these questions:
 1. **What data do we have?**
-    - We had three files to work with (along with corresponding datapoints tracked):
-        - *Raw Events data*
-            - 1,746 rows x 14 columns
-            - Column Names
-                - Team
-                - Type
-                - Subtype
-                - Period
-                - Start Frame
-                - Start Time [s]
-                - End Frame
-                - End Time [s]
-                - From
-                - To
-                - Start X
-                - Start Y
-                - End X
-                - End Y
-            
-        - *Raw Tracking data for the Home Team*
-        - *Raw Tracking data for the Away Team*
+We had three files to work with (along with corresponding datapoints tracked):
+    - ***Raw Events data***
+        - 1,746 rows x 14 columns
+        - Column Names
+            - Team
+            - Type
+            - Subtype
+            - Period
+            - Start Frame
+            - Start Time [s]
+            - End Frame
+            - End Time [s]
+            - From
+            - To
+            - Start X
+            - Start Y
+            - End X
+            - End Y      
+    - ***Raw Tracking data for the Home Team***
+        - 145,007 rows x 33 columns
+        - Column Names
+            - X-coordinate positions for 14 home team players and the ball
+            - Y-coordinate positions for 14 home team players and the ball
+    - ***Raw Tracking data for the Away Team***
+        - 145,007 rows x 33 columns
+        - Column Names
+            - X-coordinate positions for 14 away team players and the ball
+            - Y-coordinate positions for 14 away team players and the ball
+2. **What can we do with this data?**
+The team conducted quite a few analyses on the dataset to derive any key findings:
+    - ***Spatial analysis***
+        - Analyses conducted:
+        - Data manipulated:
+            - Team
+            - Type
+    - ***Event analysis***
+        - Analyses conducted:
+        - Data manipulated:
+            - Team
+            - Type
+    - ***Temporal analysis***
+        - Analyses conducted:
+        - Data manipulated:
+            - Team
+            - Type
+    - ***Visual analysis***
+        - Analyses conducted:
+        - Data manipulated:
+            - Team
+            - Type
 
 
 
@@ -44,7 +74,7 @@ The following sections break down how the team approached each of these question
 
 
 
-
+--------------------------------------------------------------------------------------
 
 The Metrica Sports sample data you mentioned provides a rich resource for soccer analytics, offering detailed tracking and event data from soccer matches. The data's structure, with coordinates ranging from 0 to 1 on each axis and standardized field dimensions (105x68 meters), facilitates various analyses. The synchronization of tracking and event data allows for in-depth analysis of player movements, team formations, and specific game events such as passes, shots, and fouls.
 
