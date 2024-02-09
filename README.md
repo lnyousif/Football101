@@ -48,17 +48,17 @@ The team conducted quite a few analyses on the dataset to derive some key findin
     - ***Spatial analysis***
         -   | **Analyses Conducted** | **Data Manipulated** |
             | ---------------------- | -------------------- |
-            | Average distance to ball per player | Created new columns to calculate each player's average distance to the ball using X-Y coordinates provided |
+            | Average distance to ball per player | Created new series to calculate each player's average distance to the ball using X-Y coordinates provided |
             | Average field position per player | Calculated average position per player on X and Y axis |
             | xxx | xxx |
             | xxx | xxx |
     - ***Event analysis***
         -   | **Analyses Conducted** | **Data Manipulated** |
             | ---------------------- | -------------------- |
-            | Average distance run per team per half | Created new column to calculate distance "Z" from (x<sub>1</sub>,y<sub>1</sub>) to (x<sub>2</sub>,y<sub>2</sub>) |
-            | Average distance per shot (goal, on-target, off-target) | Filtered and grouped data  |
-            | Average time ball held per team per half (per event) | xxx |
-            | Average amount of time ball held by player (per event) | xxx |
+            | Average distance run per team per half | Created new series to calculate distance "Z" from (x<sub>1</sub>,y<sub>1</sub>) to (x<sub>2</sub>,y<sub>2</sub>) |
+            | Average distance per shot (goal, on-target, off-target) | Filtered and grouped data to compare success rate per average distance of shot |
+            | Average time ball held per team per half (per event) | Created new series to calculate difference between End Time and Start Time to determine amount of possession |
+            | Average amount of time ball held by each player (per event) | Grouped and summed data to determine amount of time each player possessed the ball during game events |
             | xxx | xxx |
     - ***Temporal analysis***
         -   | **Analyses Conducted** | **Data Manipulated** |
@@ -73,7 +73,10 @@ The team conducted quite a few analyses on the dataset to derive some key findin
             | xxx | xxx |
             | xxx | xxx |
 3. **What do these analyses inform?**
+    - Observed a strong correlation between time held and distance ran, which runs counter to our initial thinking since we had the initial assumption that the team that ran the most was likely chasing the ball more often, rather than holding it longer
+    - Home team maintained possession on the away team's side of the pitch on average, with more home players being closer to the ball than away players on average
 4. **What additional analyses could be performed if more data was available?**
+    - xxx
 
 
 
