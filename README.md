@@ -45,25 +45,31 @@ We had three files to work with (along with corresponding datapoints tracked):
 2. **What can we do with this data?**
 The team conducted quite a few analyses on the dataset to derive any key findings:
     - ***Spatial analysis***
-        - Analyses conducted:
-        - Data manipulated:
-            - Team
-            - Type
+        -   | **Analyses Conducted** | **Data Manipulated** |
+            | ---------------------- | -------------------- |
+            | Average field position per player | N/A |
+            | Average distance to ball per player | xxx |
+            | Average time ball held per team per half (per event) | xxx |
+            | Average amount of time ball held by player (per event) | xxx |
     - ***Event analysis***
-        - Analyses conducted:
-        - Data manipulated:
-            - Team
-            - Type
+        -   | **Analyses Conducted** | **Data Manipulated** |
+            | ---------------------- | -------------------- |
+            | Average distance per shot (goal, on-target, off-target) | N/A |
+            | Average distance run per team per half | xxx |
+            | Average time ball held per team per half (per event) | xxx |
+            | Average amount of time ball held by player (per event) | xxx |
     - ***Temporal analysis***
-        - Analyses conducted:
-        - Data manipulated:
-            - Team
-            - Type
+        -   | **Analyses Conducted** | **Data Manipulated** |
+            | ---------------------- | -------------------- |
+            | xxx | xxx |
+            | xxx | xxx |
+            | xxx | xxx |
     - ***Visual analysis***
-        - Analyses conducted:
-        - Data manipulated:
-            - Team
-            - Type
+        -   | **Analyses Conducted** | **Data Manipulated** |
+            | ---------------------- | -------------------- |
+            | xxx | xxx |
+            | xxx | xxx |
+            | xxx | xxx |
 
 
 
