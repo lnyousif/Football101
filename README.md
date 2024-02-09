@@ -43,21 +43,22 @@ We had three files to work with (along with corresponding datapoints tracked):
             - X-coordinate positions for 14 away team players and the ball
             - Y-coordinate positions for 14 away team players and the ball
 2. **What can we do with this data?**
-The team conducted quite a few analyses on the dataset to derive any key findings:
+The team conducted quite a few analyses on the dataset to derive some key findings:
     - ***Spatial analysis***
         -   | **Analyses Conducted** | **Data Manipulated** |
             | ---------------------- | -------------------- |
-            | Average field position per player | N/A |
-            | Average distance to ball per player | xxx |
-            | Average time ball held per team per half (per event) | xxx |
-            | Average amount of time ball held by player (per event) | xxx |
+            | Average distance to ball per player | Created new columns to calculate each player's average distance to the ball using X-Y coordinates provided |
+            | Average field position per player | Calculated average position per player on X and Y axis |
+            | xxx | xxx |
+            | xxx | xxx |
     - ***Event analysis***
         -   | **Analyses Conducted** | **Data Manipulated** |
             | ---------------------- | -------------------- |
-            | Average distance per shot (goal, on-target, off-target) | N/A |
-            | Average distance run per team per half | xxx |
+            | Average distance run per team per half | Created new column to calculate distance "Z" from (x<sub>1</sub>,y<sub>1</sub>) to (x<sub>2</sub>,y<sub>2</sub>) |
+            | Average distance per shot (goal, on-target, off-target) | Filtered and grouped data  |
             | Average time ball held per team per half (per event) | xxx |
             | Average amount of time ball held by player (per event) | xxx |
+            | xxx | xxx |
     - ***Temporal analysis***
         -   | **Analyses Conducted** | **Data Manipulated** |
             | ---------------------- | -------------------- |
