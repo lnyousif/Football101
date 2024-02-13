@@ -77,7 +77,7 @@ The team conducted quite a few analyses on the dataset to derive some key findin
     - Observed a strong correlation between time held and distance ran, which runs counter to our initial thinking since we had the initial assumption that the team that ran the most was likely chasing the ball more often, rather than holding it longer
     - Home team maintained possession on the away team's side of the pitch on average, with more home players being closer to the ball than away players on average
 4. **What additional analyses could be performed if more data was available?**
-    - xxx
+    - Quantify homefield advantage
 
 
 
