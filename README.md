@@ -1,4 +1,4 @@
-# FOOTBALL ANALYSIS
+# FOOTBALL MATCH ANALYSIS
 
 Group 3 set out to analyze a dataset from one football (soccer) match to understand if any key themes or insights could be found. The team began the analysis with some summary statistics, but then delved deeper into various visualizations or correlations that could "bring the match to life". Some key analyses conducted include:
 - **Spatial analysis:** Identify how different players on each team positioned themselves during the game
@@ -76,14 +76,18 @@ The team conducted quite a few analyses on the dataset to derive some key findin
 3. **What do these analyses inform?**
     - Observed a strong correlation between time held and distance ran, which runs counter to our initial thinking since we had the initial assumption that the team that ran the most was likely chasing the ball more often, rather than holding it longer
     - Home team maintained possession on the away team's side of the pitch on average, with more home players being closer to the ball than away players on average
+    - xxx
 4. **What additional analyses could be performed if more data was available?**
+    - Calculate average position per player to determine starting and ending formation
     - Quantify homefield advantage
-    - Pitch control analysis (i.e., how much territory can a player cover by taking a specific run)
+    - Diagram pitch control (i.e., how much territory can a player cover via various run tactics)
+    - xxx
 
 
 
 ## Resources
-- xxx
+- Statsbomb open data: https://github.com/statsbomb/open-data
+- Wyscout event data: https://figshare.com/collections/Soccer_match_event_dataset/4415000
 
 --------------------------------------------------------------------------------------
 
