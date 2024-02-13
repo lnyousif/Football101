@@ -59,7 +59,8 @@ The team conducted quite a few analyses on the dataset to derive some key findin
             | Average distance per shot (goal, on-target, off-target) | Filtered and grouped data to compare success rate per average distance of shot |
             | Average time ball held per team per half (per event) | Created new series to calculate difference between End Time and Start Time to determine amount of possession |
             | Average amount of time ball held by each player (per event) | Grouped and summed data to determine amount of time each player possessed the ball during game events |
-            | xxx | xxx |
+            | Average success Rate by Player and team | Classified events and player contribution into success, fial or neutral based on the outcome. This helped chart a post game picture of individual player and team performance   |
+            | Team succeess rate trend over time | Sketched out the average success rate of both teams over time as a measure of stamina over the course of the game  |
     - ***Temporal analysis***
         -   | **Analyses Conducted** | **Data Manipulated** |
             | ---------------------- | -------------------- |
