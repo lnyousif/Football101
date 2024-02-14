@@ -10,7 +10,7 @@ The team approached this analysis in the following manner:
 
 1) *What data do we have?*
 2) *What can we do with this data?*
-3) *What do these analyses inform?*
+3) *What insights do these analyses inform?*
 4) *What additional analyses could be performed if more data was available?*
 --------------------------------------------------------------------------------------
 The following sections break down how the team approached each of these questions:
@@ -65,7 +65,9 @@ The team conducted quite a few analyses on the dataset to derive some key findin
     - ***Temporal analysis***
         -   | **Analyses Conducted** | **Data Manipulated** |
             | ---------------------- | -------------------- |
-            | Team succeess rate trend over time | Sketched out the average success rate of both teams over time as a measure of stamina over the course of the game |
+            | Team success rate trend over time | Sketched out the average success rate of both teams over time as a measure of stamina over the course of the game |
+            | Ball position throughout match | xxx |
+            | Player speed start vs. end game | xxx |
             | xxx | xxx |
             | xxx | xxx |
     - ***Visual analysis***
@@ -74,11 +76,11 @@ The team conducted quite a few analyses on the dataset to derive some key findin
             | xxx | xxx |
             | xxx | xxx |
             | xxx | xxx |
-3. **What do these analyses inform?**
+3. **What insights do these analyses inform?**
     - Observed a strong correlation between time held and distance ran, which runs counter to our initial thinking since we had the initial assumption that the team that ran the most was likely chasing the ball more often, rather than holding it longer
     - Home team maintained possession on the away team's side of the pitch on average, with more home players being closer to the ball than away players on average
     - xxx
-4. **What additional analyses could be performed if more data was available?**
+4. **What additional analyses could be performed if more data/time was available?**
     - Calculate average position per player to determine starting and ending formation
     - Quantify homefield advantage
     - Diagram pitch control (i.e., how much territory can a player cover via various run tactics)
