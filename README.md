@@ -66,20 +66,22 @@ The team conducted quite a few analyses on the dataset to derive some key findin
         -   | **Analyses Conducted** | **Data Manipulated** |
             | ---------------------- | -------------------- |
             | Team success rate trend over time | Sketched out the average success rate of both teams over time as a measure of stamina over the course of the game |
-            | Ball position throughout match | xxx |
-            | Player speed start vs. end game | xxx |
+            | Ball position throughout match | As we can see that both teams had the ball on each other half almost equally, but the home team spent more time |
+            | Player speed start vs. end game | As you can see, here we compare 4 players performance at the start of the match vs the end of the match, Its pro level match as we dont see a noticeable difference |
             | xxx | xxx |
             | xxx | xxx |
     - ***Visual analysis***
         -   | **Analyses Conducted** | **Data Manipulated** |
             | ---------------------- | -------------------- |
-            | xxx | xxx |
-            | xxx | xxx |
-            | xxx | xxx |
+            | Plot passes and goals | Break down event types, filter on goals, find passes leading to goal |
+            | Summarize player performance | Calculate max speed, acceleration, and distance covered |
+            | Video of time series | Convert location coordinates to field and map to time frames |
+            | Pitch control and risky passes | Calculate duration for ball to arrive and duration for player to arrive -> probability each team will control ball when it arrives |
 3. **What insights do these analyses inform?**
     - Observed a strong correlation between time held and distance ran, which runs counter to our initial thinking since we had the initial assumption that the team that ran the most was likely chasing the ball more often, rather than holding it longer
     - Home team maintained possession on the away team's side of the pitch on average, with more home players being closer to the ball than away players on average
-    - xxx
+    - Successful non-goal events can be a good predictor of impending goals for real time betting - data from more games can lead to more specific predictions
+    - Overall very few risky passes are made, and of those risky passes the majority are followed by a challenge from the other team
 4. **What additional analyses could be performed if more data/time was available?**
     - Calculate average position per player to determine starting and ending formation
     - Quantify homefield advantage
