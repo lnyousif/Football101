@@ -1,14 +1,14 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Apr  4 11:18:49 2020
-
-Module for reading in Metrica sample data.
-
-Data can be found at: https://github.com/metrica-sports/sample-data
-
-@author: Laurie Shaw (@EightyFivePoint)
-"""
+'''
+Copied from https://github.com/Friends-of-Tracking-Data-FoTD/LaurieOnTracking/blob/master/Metrica_IO.py
+read_match_data
+read_event_data
+tracking_data
+merge_tracking_data
+to_metric_coordinates
+to_single_playing_direction
+find_playing_direction
+find_goalkeeper
+'''
 
 import pandas as pd
 import csv as csv
@@ -85,7 +85,7 @@ def to_single_playing_direction(home,away,events):
     Flip coordinates in second half so that each team always shoots in the same direction through the match.
     '''
     for team in [home,away,events]:
-        second_half_idx = team.Period.idxmax(2)
+        second_half_idx = team.Period.idxmax(0)
         columns = [c for c in team.columns if c[-1].lower() in ['x','y']]
         team.loc[second_half_idx:,columns] *= -1
     return home,away,events
@@ -103,6 +103,5 @@ def find_goalkeeper(team):
     Find the goalkeeper in team, identifying him/her as the player closest to goal at kick off
     ''' 
     x_columns = [c for c in team.columns if c[-2:].lower()=='_x' and c[:4] in ['Home','Away']]
-    GK_col = team.iloc[0][x_columns].abs().idxmax(axis=1)
+    GK_col = team.iloc[0][x_columns].abs().idxmax(axis=0)
     return GK_col.split('_')[1]
-    
