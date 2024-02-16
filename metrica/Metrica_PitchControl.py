@@ -1,37 +1,12 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Apr 19 14:52:19 2020
-
-Module for calculating a Pitch Control surface using MetricaSports's tracking & event data.
-
-Pitch control (at a given location on the field) is the probability that a team will gain 
-possession if the ball is moved to that location on the field. 
-
-Methdology is described in "Off the ball scoring opportunities" by William Spearman:
-http://www.sloansportsconference.com/wp-content/uploads/2018/02/2002.pdf
-
-GitHub repo for this code can be found here:
-https://github.com/Friends-of-Tracking-Data-FoTD/LaurieOnTracking
-
-Data can be found at: https://github.com/metrica-sports/sample-data
-
-Functions
-----------
-
-calculate_pitch_control_at_target(): calculate the pitch control probability for the attacking and defending teams at a specified target position on the ball.
-
-generate_pitch_control_for_event(): this function evaluates pitch control surface over the entire field at the moment
-of the given event (determined by the index of the event passed as an input)
-
-Classes
----------
-
-The 'player' class collects and stores trajectory information for each player required by the pitch control calculations.
-
-@author: Laurie Shaw (@EightyFivePoint)
-
-"""
+'''
+Copied from https://github.com/Friends-of-Tracking-Data-FoTD/LaurieOnTracking/blob/master/Metrica_PitchControl.py
+initialise_players
+check_offsides
+player (class)
+default_model_params
+generate_pitch_control_for_event
+calculate_pitch_control_at_target
+'''
 
 import numpy as np
 
@@ -82,7 +57,7 @@ def check_offsides( attacking_players, defending_players, ball_position, GK_numb
         verbose: if True, print a message each time a player is found to be offside
         tol: A tolerance parameter that allows a player to be very marginally offside (up to 'tol' m) without being flagged offside. Default: 0.2m
             
-    Returrns
+    Returns
     -----------
         attacking_players: list of 'player' objects for the players on the attacking team with offside players removed
     """    
@@ -224,7 +199,7 @@ def generate_pitch_control_for_event(event_id, events, tracking_home, tracking_a
         
     UPDATE (tutorial 4): Note new input arguments ('GK_numbers' and 'offsides')
         
-    Returrns
+    Returns
     -----------
         PPCFa: Pitch control surface (dimen (n_grid_cells_x,n_grid_cells_y) ) containing pitch control probability for the attcking team.
                Surface for the defending team is just 1-PPCFa.
@@ -268,6 +243,63 @@ def generate_pitch_control_for_event(event_id, events, tracking_home, tracking_a
     assert 1-checksum < params['model_converge_tol'], "Checksum failed: %1.3f" % (1-checksum)
     return PPCFa,xgrid,ygrid
 
+def generate_pitch_control_for_frame(tracking_home, tracking_away, params, GK_numbers, field_dimen = (106.,68.,), n_grid_cells_x = 50, offsides=True):
+    """ generate_pitch_control_for_event
+    
+    Evaluates pitch control surface over the entire field at the moment of the given event (determined by the index of the event passed as an input)
+    
+    Parameters
+    -----------
+        tracking_home: tracking DataFrame for the Home team
+        tracking_away: tracking DataFrame for the Away team
+        params: Dictionary of model parameters (default model parameters can be generated using default_model_params() )
+        GK_numbers: tuple containing the player id of the goalkeepers for the (home team, away team)
+        field_dimen: tuple containing the length and width of the pitch in meters. Default is (106,68)
+        n_grid_cells_x: Number of pixels in the grid (in the x-direction) that covers the surface. Default is 50.
+                        n_grid_cells_y will be calculated based on n_grid_cells_x and the field dimensions
+        offsides: If True, find and remove offside atacking players from the calculation. Default is True.
+        
+    UPDATE (tutorial 4): Note new input arguments ('GK_numbers' and 'offsides')
+        
+    Returns
+    -----------
+        PPCFa: Pitch control surface (dimen (n_grid_cells_x,n_grid_cells_y) ) containing pitch control probability for the attcking team.
+               Surface for the defending team is just 1-PPCFa.
+        xgrid: Positions of the pixels in the x-direction (field length)
+        ygrid: Positions of the pixels in the y-direction (field width)
+
+    """
+    # break the pitch down into a grid
+    n_grid_cells_y = int(n_grid_cells_x * field_dimen[1] / field_dimen[0])
+    dx = field_dimen[0] / n_grid_cells_x
+    dy = field_dimen[1] / n_grid_cells_y
+    xgrid = np.arange(n_grid_cells_x) * dx - field_dimen[0] / 2. + dx / 2.
+    ygrid = np.arange(n_grid_cells_y) * dy - field_dimen[1] / 2. + dy / 2.
+    
+    # initialise pitch control grids for attacking and defending teams 
+    PPCFa = np.zeros(shape=(len(ygrid), len(xgrid)))
+    PPCFd = np.zeros(shape=(len(ygrid), len(xgrid)))
+    
+    # initialise player positions and velocities for pitch control calc
+    attacking_players = initialise_players(tracking_home, 'Home', params, GK_numbers[0])
+    defending_players = initialise_players(tracking_away, 'Away', params, GK_numbers[1])
+    
+    # find any attacking players that are offside and remove them from the pitch control calculation
+    if offsides:
+        attacking_players = check_offsides(attacking_players, defending_players, nan, GK_numbers)
+    
+    # calculate pitch pitch control model at each location on the pitch
+    for i in range(len(ygrid)):
+        for j in range(len(xgrid)):
+            target_position = np.array([xgrid[j], ygrid[i]])
+            PPCFa[i, j], PPCFd[i, j] = calculate_pitch_control_at_target(target_position, attacking_players, defending_players, nan, params)
+    
+    # check probability sums within convergence
+    checksum = np.sum(PPCFa + PPCFd) / float(n_grid_cells_y * n_grid_cells_x)
+    assert 1 - checksum < params['model_converge_tol'], "Checksum failed: %1.3f" % (1 - checksum)
+    
+    return PPCFa, xgrid, ygrid
+
 def calculate_pitch_control_at_target(target_position, attacking_players, defending_players, ball_start_pos, params):
     """ calculate_pitch_control_at_target
     
@@ -281,7 +313,7 @@ def calculate_pitch_control_at_target(target_position, attacking_players, defend
         ball_start_pos: Current position of the ball (start position for a pass). If set to NaN, function will assume that the ball is already at the target position.
         params: Dictionary of model parameters (default model parameters can be generated using default_model_params() )
         
-    Returrns
+    Returns
     -----------
         PPCFatt: Pitch control probability for the attacking team
         PPCFdef: Pitch control probability for the defending team ( 1-PPCFatt-PPCFdef <  params['model_converge_tol'] )
@@ -338,7 +370,3 @@ def calculate_pitch_control_at_target(target_position, attacking_players, defend
         if i>=dT_array.size:
             print("Integration failed to converge: %1.3f" % (ptot) )
         return PPCFatt[i-1], PPCFdef[i-1]
-
-
-
-    

@@ -1,15 +1,9 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Apr  6 14:52:19 2020
+'''
+Copied from https://github.com/Friends-of-Tracking-Data-FoTD/LaurieOnTracking/blob/master/Metrica_Velocities.py
+calc_player_velocities
+remove_player_velocities
+'''
 
-Module for measuring player velocities, smoothed using a Savitzky-Golay filter, with Metrica tracking data.
-
-Data can be found at: https://github.com/metrica-sports/sample-data
-
-@author: Laurie Shaw (@EightyFivePoint)
-
-"""
 import numpy as np
 import scipy.signal as signal
 
@@ -27,7 +21,7 @@ def calc_player_velocities(team, smoothing=True, filter_='Savitzky-Golay', windo
         polyorder: order of the polynomial for the Savitzky-Golay filter. Default is 1 - a linear fit to the velcoity, so gradient is the acceleration
         maxspeed: the maximum speed that a player can realisitically achieve (in meters/second). Speed measures that exceed maxspeed are tagged as outliers and set to NaN. 
         
-    Returrns
+    Returns
     -----------
        team : the tracking DataFrame with columns for speed in the x & y direction and total speed added
 
@@ -79,8 +73,8 @@ def calc_player_velocities(team, smoothing=True, filter_='Savitzky-Golay', windo
         team[player + "_vx"] = vx
         team[player + "_vy"] = vy
         team[player + "_speed"] = np.sqrt( vx**2 + vy**2 )
-        
         team[player + "_distance_ball"] = ((team[player + '_x'] - team['ball_x']) ** 2 + (team[player + '_y'] - team['ball_y']) ** 2) ** 0.5
+
     return team
 
 def remove_player_velocities(team):
